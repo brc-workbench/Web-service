@@ -14,10 +14,11 @@ on:
       - master
 
 env:
-  AZURE_WEBAPP_NAME: bclausingwb-api          # set this to your application's name
-  AZURE_WEBAPP_PACKAGE_PATH: './wwwroot'      # set this to the path to your web app project, defaults to the repository root
-  DOTNET_VERSION: '2.2.108'                   # set this to the dotnet version to use
-  BUILD_CONFIG: 'Release'                     # set this to the build configuration { Release | Debug }
+  AZURE_WEBAPP_NAME: bclausingwb-api            # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: './wwwroot'        # set this to the path to your web app project, defaults to the repository root
+  DOTNET_VERSION: '2.2.108'                     # set this to the dotnet version to use
+  BUILD_CONFIG: 'Release'                       # set this to the build configuration { Release | Debug }
+  PROJECT_PATH: './WebService/WebService.csproj'  # set this to the path to the project to be deployed (avoid deploying test project)
 
 jobs:
   build-and-deploy:
@@ -34,7 +35,7 @@ jobs:
     - name: Test
       run: dotnet test --no-build --configuration ${{ env.BUILD_CONFIG }}
     - name: Publish
-      run: dotnet publish --no-build --output ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+      run: dotnet publish ${{ PROJECT_PATH }} --no-build --output ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
     - name: 'Deploy to Azure WebApp'
       uses: azure/webapps-deploy@v1
       with:
