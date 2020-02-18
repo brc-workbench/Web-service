@@ -20,7 +20,7 @@ env:
 
 jobs:
   build-and-deploy:
-    name: Build and Deploy
+    name: Build, Test and Deploy
     runs-on: windows-latest
     steps:
     - uses: actions/checkout@v2
@@ -28,8 +28,12 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: ${{ env.DOTNET_VERSION }}
-    - name: Build and publish
-      run: dotnet publish --configuration Release --output ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+    - name: Build
+      run: dotnet build --configuration Release
+    - name: Test
+      run: dotnet test --no-build
+    - name: Publish
+      run: dotnet publish --no-build --output ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
     - name: 'Deploy to Azure WebApp'
       uses: azure/webapps-deploy@v1
       with:
