@@ -34,7 +34,7 @@ jobs:
     - name: Test
       run: dotnet test --no-build --configuration ${{ env.BUILD_CONFIG }}
     - name: Publish
-      run: dotnet publish --no-build --output ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+      run: dotnet publish --no-build --configuration ${{ env.BUILD_CONFIG }} --output ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
     - name: 'Deploy to Azure WebApp'
       uses: azure/webapps-deploy@v1
       with:
