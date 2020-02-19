@@ -14,5 +14,18 @@ This .Net Core application is meant to represent a REST microservice.  It will b
 
 # Tools
 ## NSwag
-Documentation - https://docs.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-nswag?view=aspnetcore-3.1&tabs=visual-studio
-Purpose - Can generate Swagger UI on the API side.  Can use the NSwagStudio tool to generate code from the Swagger UI to be consumed by client applications.
+<dl>
+  <dt>Documentation</dt>
+  <dd>https://docs.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-nswag?view=aspnetcore-3.1&tabs=visual-studio</dd>
+  <dt>Purpose</dt>
+  <dd>Can generate Swagger UI on the API side.  Can use the NSwagStudio tool to generate code from the Swagger UI to be consumed by client applications.</dd>
+  <dt>Launch the app. Navigate to:</dt>
+  <dd>http://localhost:<port>/swagger to view the Swagger UI.</br>
+    http://localhost:<port>/swagger/v1/swagger.json to view the Swagger specification.</dd>
+  </dl>
+
+
+
+
+
+
