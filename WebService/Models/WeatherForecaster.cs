@@ -26,5 +26,11 @@ namespace WebService.Models
 
             return weather;
         }
+
+        public Task<WeatherForecast[]> WeatherSummairesAsync()
+        {
+            return Task<WeatherForecast[]>.Run(() => WeatherSummaires());
+        }
+
     }
 }
