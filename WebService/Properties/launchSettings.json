@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Project.WebService": {
+    "WebService": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "weatherforecast",

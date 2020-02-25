@@ -5,25 +5,21 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using WebService.Models;
+using WebService.Services;
 
-namespace Project.WebService.Controllers
+namespace WebService.Controllers
 {
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly IWeatherForecaster _weatherService;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(IWeatherForecaster weatherService, ILogger<WeatherForecastController> logger)
         {
             _logger = logger;
-
-            /*
-                [Consumes(MediaTypeNames.Application.Json)]
-                [ProducesResponseType(StatusCodes.Status201Created)]
-                [ProducesResponseType(StatusCodes.Status400BadRequest)]
-             */
+            _weatherService = weatherService;
         }
 
         [HttpGet]
@@ -32,9 +28,7 @@ namespace Project.WebService.Controllers
         {
             _logger.LogInformation($"Begin GET/weatherforecast @ {DateTime.Now}");
             
-            // ToDo - IoC this type
-            var forecaster = new WeatherForecaster();
-            var summaries = await forecaster.WeatherSummairesAsync();
+            var summaries = await _weatherService.WeatherSummairesAsync();
 
             _logger.LogInformation($"End GET/weatherforecast @ {DateTime.Now}");
 

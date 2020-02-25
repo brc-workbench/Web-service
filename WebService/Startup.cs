@@ -1,17 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
+using WebService.Data;
+using WebService.Services;
 
-namespace Project.WebService
+namespace WebService
 {
     public class Startup
     {
@@ -29,6 +25,15 @@ namespace Project.WebService
 
             // Register the Swagger services
             services.AddSwaggerDocument();
+
+            // Entity Framework
+            services.AddDbContext<WebServiceDBContext>(opt => 
+                opt.UseSqlServer(Configuration.GetConnectionString("WeatherForecastsConnection"))
+                   .EnableSensitiveDataLogging()
+                );
+
+            // DI
+            services.AddScoped<IWeatherForecaster, WeatherForecaster>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
