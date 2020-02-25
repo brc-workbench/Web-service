@@ -1,18 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Project.WebService;
 
-namespace WebService.Models
+namespace WebService.Services
 {
-    public class WeatherForecaster
+    public class WeatherForecaster : IWeatherForecaster
     {
         private static readonly string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
+        /// <summary>
+        /// TODO:  EF has been added to the prject.  Need to pull data from the DB.
+        /// </summary>
+        /// <returns></returns>
         public WeatherForecast[] WeatherSummaires()
         {
             var rng = new Random();
@@ -31,6 +33,5 @@ namespace WebService.Models
         {
             return Task<WeatherForecast[]>.Run(() => WeatherSummaires());
         }
-
     }
 }
