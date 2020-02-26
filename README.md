@@ -23,7 +23,16 @@ This .Net Core application is meant to represent a REST microservice.  It will b
   <dd>http://localhost:<port>/swagger to view the Swagger UI.</br>
     http://localhost:<port>/swagger/v1/swagger.json to view the Swagger specification.</dd>
   </dl>
-
+  
+## Entity Framework Core
+<dl>
+  <dt>NuGet Packages</dt>
+  <dd>Microsoft.EntityFrameworkCore.SqlServer</br>
+  Microsoft.EntityFrameworkCore.Tools</dd>
+  <dt>Code-first Workflow</dt>
+  <dd>Update models in code</br>
+  Use PowerShell from within Visual Studio to execute Update-Database</dd>
+</dl>
 
 
 
