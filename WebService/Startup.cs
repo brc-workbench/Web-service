@@ -28,7 +28,7 @@ namespace WebService
 
             // Entity Framework
             services.AddDbContext<WebServiceDBContext>(opt => 
-                opt.UseSqlServer(Configuration.GetConnectionString("WeatherForecastsConnection"))
+                opt.UseSqlServer(Configuration.GetConnectionString("WeatherForecastsConnectionSQL"))
                    .EnableSensitiveDataLogging()
                 );
 
