@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using WebService.Data;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
 namespace WebService.Services
 {
@@ -10,6 +13,13 @@ namespace WebService.Services
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
+
+        private static WebServiceDBContext _dbContext;
+
+        public WeatherForecaster(WebServiceDBContext context)
+        {
+            _dbContext = context;
+        }
 
         /// <summary>
         /// TODO:  EF has been added to the prject.  Need to pull data from the DB.
@@ -32,6 +42,11 @@ namespace WebService.Services
         public Task<WeatherForecast[]> WeatherSummairesAsync()
         {
             return Task<WeatherForecast[]>.Run(() => WeatherSummaires());
+        }
+
+        public async Task<List<WeatherForecast>> WeatherSummariesFromDatabase()
+        {
+            return await _dbContext.WeatherForecasts.ToListAsync();
         }
     }
 }
