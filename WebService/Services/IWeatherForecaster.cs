@@ -1,4 +1,6 @@
 ﻿using System.Threading.Tasks;
+using System.Collections.Generic;
+using WebService.Data;
 
 namespace WebService.Services
 {
@@ -6,5 +8,6 @@ namespace WebService.Services
     {
         public WeatherForecast[] WeatherSummaires();
         public Task<WeatherForecast[]> WeatherSummairesAsync();
+        public Task<List<WeatherForecast>> WeatherSummariesFromDatabase();
     }
 }
