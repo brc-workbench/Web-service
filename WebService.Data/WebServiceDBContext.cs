@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using WebService;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace WebService.Data
 {
     public class WebServiceDBContext : DbContext
     {
-        private static readonly string connectionString = "Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = WeatherForecaster";
+        //private static readonly string connectionString = "Data Source = (localdb)\\MSSQLLocalDB; Initial Catalog = WeatherForecaster";
 
         public WebServiceDBContext(DbContextOptions<WebServiceDBContext> options)
             : base(options)
@@ -18,5 +13,6 @@ namespace WebService.Data
         }
         
         public DbSet<WeatherForecast> WeatherForecasts { get; set; }
+        public DbSet<GeneralContact> GeneralContacts { get; set; }
     }
 }

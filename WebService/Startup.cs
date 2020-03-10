@@ -34,6 +34,7 @@ namespace WebService
 
             // DI
             services.AddScoped<IWeatherForecaster, WeatherForecaster>();
+            services.AddScoped<IGeneralContactsService, GeneralContactsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
