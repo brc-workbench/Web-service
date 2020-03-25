@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebService</name>
+    </assembly>
+    <members>
+        <member name="T:WebService.Controllers.GeneralContactController">
+            <summary>
+            API for GeneralContact.
+            </summary>
+        </member>
+        <member name="M:WebService.Controllers.GeneralContactController.#ctor(WebService.Services.IGeneralContactsService,Microsoft.Extensions.Logging.ILogger{WebService.Controllers.GeneralContactController})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WebService.Controllers.GeneralContactController"/> class.
+            </summary>
+            <param name="generalContactService">Service for data access.</param>
+            <param name="logger">Default logger.</param>
+        </member>
+        <member name="M:WebService.Controllers.GeneralContactController.Get">
+            <summary>
+            GET for all GeneralContact records.
+            </summary>
+            <returns>All contact records.</returns>
+        </member>
+        <member name="T:WebService.Controllers.WeatherForecastController">
+            <summary>
+            API for WeatherForecast.
+            </summary>
+        </member>
+        <member name="M:WebService.Controllers.WeatherForecastController.#ctor(WebService.Services.IWeatherForecaster,Microsoft.Extensions.Logging.ILogger{WebService.Controllers.WeatherForecastController})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WebService.Controllers.WeatherForecastController"/> class.
+            </summary>
+            <param name="weatherService">Data access service.</param>
+            <param name="logger">Default logger.</param>
+        </member>
+        <member name="M:WebService.Controllers.WeatherForecastController.Get">
+            <summary>
+            GET for all weather summaries.
+            </summary>
+            <returns>List of summaries.</returns>
+        </member>
+        <member name="T:WebService.Program">
+            <summary>
+            Program class that serves as the applications main entry point.
+            </summary>
+        </member>
+        <member name="M:WebService.Program.Main(System.String[])">
+            <summary>
+            Main entry point of application.
+            </summary>
+            <param name="args">Arguments passed in from the command line.</param>
+        </member>
+        <member name="M:WebService.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Configure IHostBuilder.
+            </summary>
+            <param name="args">Default arguments.</param>
+            <returns>The configured IHostBuilder object.</returns>
+        </member>
+        <member name="T:WebService.Services.GeneralContactsService">
+            <summary>
+            Service for all GeneralContact data access.
+            </summary>
+        </member>
+        <member name="M:WebService.Services.GeneralContactsService.#ctor(WebService.Data.WebServiceDBContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WebService.Services.GeneralContactsService"/> class.
+            </summary>
+            <param name="context">DBContext.</param>
+        </member>
+        <member name="M:WebService.Services.GeneralContactsService.GeneralContatsFromDatabase">
+            <summary>
+            Retrieve full list of contacts.
+            </summary>
+            <returns>List of contacts.</returns>
+        </member>
+        <member name="T:WebService.Services.IGeneralContactsService">
+            <summary>
+            Interface for GeneralContacts.
+            </summary>
+        </member>
+        <member name="M:WebService.Services.IGeneralContactsService.GeneralContatsFromDatabase">
+            <summary>
+            Retrieve full list of contacts.
+            </summary>
+            <returns>List of contacts.</returns>
+        </member>
+        <member name="T:WebService.Services.IWeatherForecaster">
+            <summary>
+            Interface for WeatherForcaster.
+            </summary>
+        </member>
+        <member name="M:WebService.Services.IWeatherForecaster.WeatherSummaires">
+            <summary>
+            Static version of retrieving weather summaries.
+            </summary>
+            <returns>Array of weather summaries.</returns>
+        </member>
+        <member name="M:WebService.Services.IWeatherForecaster.WeatherSummairesAsync">
+            <summary>
+            An async version of retrieving static weather summaries.
+            </summary>
+            <returns>Array of weather summaries.</returns>
+        </member>
+        <member name="M:WebService.Services.IWeatherForecaster.WeatherSummariesFromDatabase">
+            <summary>
+            Database version of retrieving weather summaries.
+            </summary>
+            <returns>List of weather summaries.</returns>
+        </member>
+        <member name="T:WebService.Services.WeatherForecaster">
+            <summary>
+            WeatherForecaster class to demonstrate backend access to SQL db via EF.
+            </summary>
+        </member>
+        <member name="M:WebService.Services.WeatherForecaster.#ctor(WebService.Data.WebServiceDBContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WebService.Services.WeatherForecaster"/> class.
+            </summary>
+            <param name="context">DBContext.</param>
+        </member>
+        <member name="M:WebService.Services.WeatherForecaster.WeatherSummaires">
+            <summary>
+            Static version of retrieving weather summaries.
+            </summary>
+            <returns>Array of weather summaries.</returns>
+        </member>
+        <member name="M:WebService.Services.WeatherForecaster.WeatherSummairesAsync">
+            <summary>
+            An async version of retrieving static weather summaries.
+            </summary>
+            <returns>Array of weather summaries.</returns>
+        </member>
+        <member name="M:WebService.Services.WeatherForecaster.WeatherSummariesFromDatabase">
+            <summary>
+            Database version of retrieving weather summaries.
+            </summary>
+            <returns>List of weather summaries.</returns>
+        </member>
+        <member name="T:WebService.Startup">
+            <summary>
+            Startup class.
+            </summary>
+        </member>
+        <member name="M:WebService.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WebService.Startup"/> class.
+            </summary>
+            <param name="configuration">Default configuration.</param>
+        </member>
+        <member name="P:WebService.Startup.Configuration">
+            <summary>
+            Gets application configuration.
+            </summary>
+        </member>
+        <member name="M:WebService.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services">Default service collection.</param>
+        </member>
+        <member name="M:WebService.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app">Default IApplicationBuilder.</param>
+            <param name="env">Default IWebHostEnvironment.</param>
+        </member>
+    </members>
+</doc>

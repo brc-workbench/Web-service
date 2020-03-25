@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebService.Data</name>
+    </assembly>
+    <members>
+        <member name="T:WebService.Data.GeneralContact">
+            <summary>
+            Generic Contact class to demonstrate EF code first migration tools.
+            </summary>
+        </member>
+        <member name="P:WebService.Data.GeneralContact.Id">
+            <summary>
+            Gets or sets the Record PK.
+            </summary>
+        </member>
+        <member name="P:WebService.Data.GeneralContact.FirstName">
+            <summary>
+            Gets or sets the contact's first name.
+            </summary>
+        </member>
+        <member name="P:WebService.Data.GeneralContact.LastName">
+            <summary>
+            Gets or sets the contact's last name.
+            </summary>
+        </member>
+        <member name="P:WebService.Data.GeneralContact.City">
+            <summary>
+            Gets or sets the contact's city.
+            </summary>
+        </member>
+        <member name="T:WebService.Data.WeatherForecast">
+            <summary>
+            Sample class to demonstrate EF code first object definitions.
+            </summary>
+        </member>
+        <member name="P:WebService.Data.WeatherForecast.Id">
+            <summary>
+            Gets or sets the Record PK.
+            </summary>
+        </member>
+        <member name="P:WebService.Data.WeatherForecast.Date">
+            <summary>
+            Gets or sets the date of the forecast.
+            </summary>
+        </member>
+        <member name="P:WebService.Data.WeatherForecast.TemperatureC">
+            <summary>
+            Gets or sets the C temp.
+            </summary>
+        </member>
+        <member name="P:WebService.Data.WeatherForecast.TemperatureF">
+            <summary>
+            Gets the F temp calculated from the C temp.
+            </summary>
+        </member>
+        <member name="P:WebService.Data.WeatherForecast.Summary">
+            <summary>
+            Gets or sets the weather summary.
+            </summary>
+        </member>
+        <member name="T:WebService.Data.WebServiceDBContext">
+            <summary>
+            DB Context for application.
+            </summary>
+        </member>
+        <member name="M:WebService.Data.WebServiceDBContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{WebService.Data.WebServiceDBContext})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WebService.Data.WebServiceDBContext"/> class.
+            </summary>
+            <param name="options">Options for DBContext defined in Startup.cs file.</param>
+        </member>
+        <member name="P:WebService.Data.WebServiceDBContext.WeatherForecasts">
+            <summary>
+            Gets or sets a list of forecasts.
+            </summary>
+        </member>
+        <member name="P:WebService.Data.WebServiceDBContext.GeneralContacts">
+            <summary>
+            Gets or sets a list of contacts.
+            </summary>
+        </member>
+    </members>
+</doc>
