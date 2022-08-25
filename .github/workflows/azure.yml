@@ -16,7 +16,7 @@ on:
 env:
   AZURE_WEBAPP_NAME: bclausingwb-api            # set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: './wwwroot'        # set this to the path to your web app project, defaults to the repository root
-  DOTNET_VERSION: '2.2.108'                     # set this to the dotnet version to use
+  DOTNET_VERSION: '3.1.x'                     # set this to the dotnet version to use
   BUILD_CONFIG: 'Release'                       # set this to the build configuration { Release | Debug }
   PROJECT_PATH: './WebService/WebService.csproj'  # set this to the path to the project to be deployed (avoid deploying test project)
 
@@ -27,7 +27,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v2
       with:
         dotnet-version: ${{ env.DOTNET_VERSION }}
     - name: Build
